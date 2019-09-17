@@ -12,6 +12,12 @@ public class DemoController {
 		theModel.addAttribute("theDate", new java.util.Date());
 		return "helloworld";
 	}
+
+	@GetMapping("/hello1")
+	public String sayHello1(Model theModel) {
+		theModel.addAttribute("theDate", new java.util.Date());
+		return "helloworld";
+	}
 }
 
 
