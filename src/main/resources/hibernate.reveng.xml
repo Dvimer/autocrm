@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+    <schema-selection match-schema="public"/>
+    <type-mapping>
+        <sql-type jdbc-type="INTEGER" hibernate-type="java.lang.Integer"/>
+        <sql-type jdbc-type="BIGINT" hibernate-type="java.lang.Long"/>
+        <sql-type jdbc-type="DOUBLE" hibernate-type="java.math.BigDecimal"/>
+        <sql-type jdbc-type="BIT" hibernate-type="java.lang.Boolean"/>
+        <sql-type jdbc-type="LONGVARBINARY" hibernate-type="byte[]"/>
+    </type-mapping>
+
+    <table-filter match-name="databasechangelog.*" exclude="true"/>
+    <table-filter match-name="persistent_logins" exclude="true"/>
+    <table-filter match-name="int_.*" exclude="true"/>
+
+</hibernate-reverse-engineering>
