@@ -1,6 +1,6 @@
-package com.luv2code.springboot.thymeleafdemo.service;
+package com.dvimer.auto.crm.service;
 
-import com.luv2code.springboot.thymeleafdemo.entity.Employee;
+import com.dvimer.auto.crm.entity.Employee;
 
 import java.util.List;
 

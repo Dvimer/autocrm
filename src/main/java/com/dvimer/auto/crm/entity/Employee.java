@@ -1,4 +1,4 @@
-package com.luv2code.springboot.thymeleafdemo.entity;
+package com.dvimer.auto.crm.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

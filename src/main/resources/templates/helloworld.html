@@ -1,10 +1,15 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
 	<title>Thymeleaf Demo</title>
-	
-	<!-- reference CSS file -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--	&lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
+
+	<title>Hello world</title>
 	<link rel="stylesheet"
 		  th:href="@{/css/demo.css}" />
 	
@@ -13,7 +18,18 @@
 <body>
 
 	<p th:text="'Time on the server is ' + ${theDate}" class="funny" />
+	<div class="container">
 
+		<footer>
+
+			<span sec:authorize="isAuthenticated()">
+                | Logged user: <span sec:authentication="name"></span> |
+                Roles: <span sec:authentication="principal.authorities"></span> |
+                <a th:href="@{/logout}">Sign Out</a>
+            </span>
+
+		</footer>
+	</div>
 </body>
 
 </html>

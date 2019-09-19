@@ -1,8 +1,7 @@
-package com.luv2code.springboot.thymeleafdemo.controller;
+package com.dvimer.auto.crm.controller;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.luv2code.springboot.thymeleafdemo.entity.Employee;
-import com.luv2code.springboot.thymeleafdemo.service.EmployeeService;
+import com.dvimer.auto.crm.entity.Employee;
+import com.dvimer.auto.crm.service.EmployeeService;
 
 @Controller
 @RequestMapping("/employees")

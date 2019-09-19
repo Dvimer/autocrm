@@ -1,6 +1,7 @@
-package com.luv2code.springboot.thymeleafdemo.controller;
+package com.dvimer.auto.crm.controller;
 
-import com.luv2code.springboot.thymeleafdemo.entity.Employee;
+import com.dvimer.auto.crm.entity.Employee;
+import org.springframework.context.annotation.Role;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
