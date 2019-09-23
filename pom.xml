@@ -64,11 +64,11 @@
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>${liquibase.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate.tool</groupId>
-            <artifactId>hibernate-tools-orm</artifactId>
-            <version>${hibernate-tools.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate.tool</groupId>-->
+<!--            <artifactId>hibernate-tools-orm</artifactId>-->
+<!--            <version>${hibernate-tools.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
