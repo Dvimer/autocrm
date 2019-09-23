@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Save Osago</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Osago Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Osago</p>
+	
+		<form action="#" th:action="@{/osagos/save}"
+						 th:object="${osago}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{office}"
+					class="form-control mb-4 col-4" placeholder="First name">
+
+			<input type="text" th:field="*{agent}"
+					class="form-control mb-4 col-4" placeholder="Last name">
+
+			<input type="text" th:field="*{phoneNumber}"
+					class="form-control mb-4 col-4" placeholder="Phone Number">
+
+			<input type="date" th:field="*{creationDate}"
+					class="form-control mb-4 col-4" placeholder="CreationDate">
+
+			<input type="text" th:field="*{area}"
+					class="form-control mb-4 col-4" placeholder="Area">
+
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/osagos/list}">Back to Osago List</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
