@@ -7,106 +7,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-	<title>Save Osago</title>
+    <title>Save Osago</title>
 </head>
 
 <body>
 
-	<div class="container">
-	
-		<h3>Osago Directory</h3>
-		<hr>
-		
-		<p class="h4 mb-4">Save Osago</p>
-	
-		<form action="#" th:action="@{/osagos/save}"
-						 th:object="${osago}" method="POST">
-		
-			<!-- Add hidden form field to handle update -->
-			<input type="hidden" th:field="*{id}" />
-			
-			<input type="text" th:field="*{agent}"
-					class="form-control mb-4 col-4" placeholder="Агент">
+<div class="container">
 
-			<input type="text" th:field="*{office}"
-					class="form-control mb-4 col-4" placeholder="Офисы">
+    <h3>Osago Directory</h3>
+    <hr>
 
-			<input type="number" th:field="*{numberOffice}"
-					class="form-control mb-4 col-4" placeholder="Номер офиса">
+    <p class="h4 mb-4">Save Osago</p>
 
-			<input type="text" th:field="*{area}"
-					class="form-control mb-4 col-4" placeholder="Территория">
+    <form action="#" th:action="@{/osagos/save}"
+          th:object="${osago}" method="POST">
 
-			<input type="date" th:field="*{creationDate}"
-				   class="form-control mb-4 col-4" placeholder="Дата">
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}"/>
 
-			<input type="date" th:field="*{startDate}"
-				   class="form-control mb-4 col-4" placeholder="Дата начала полиса">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Агент</span>
+            </div>
+            <input type="text" th:field="*{agent}"
+                   class="form-control col-5" placeholder="Агент">
+        </div>
 
-			<input type="text" th:field="*{firstName}"
-					class="form-control mb-4 col-4" placeholder="ФИО">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Офисы</span>
+            </div>
+            <input type="text" th:field="*{office}"
+                   class="form-control col-5" placeholder="Офисы">
+        </div>
 
-			<input type="text" th:field="*{phoneNumber}"
-				   class="form-control mb-4 col-4" placeholder="Телефонный номер">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Номер офиса</span>
+            </div>
+            <input type="number" th:field="*{numberOffice}"
+                   class="form-control col-5" placeholder="Номер офиса">
+        </div>
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Территория</span>
+            </div>
+            <select th:field="*{area}" class="form-control col-5">
+                <option value="apple">Moskow</option>
+                <option value="apple">Podolsk</option>
+                <option value="apple">Klimovsk</option>
+            </select>
+        </div>
 
-			<input type="text" th:field="*{kindInsurance}"
-				   class="form-control mb-4 col-4" placeholder="Вид страхования">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Дата</span>
+            </div>
+            <input type="date" th:field="*{creationDate}"
+                   class="form-control col-5" placeholder="Дата">
+        </div>
 
-			<input type="number" th:field="*{baseRate}"
-				   class="form-control mb-4 col-4" placeholder="Базовый тариф">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Дата начала полиса</span>
+            </div>
+            <input type="date" th:field="*{startDate}"
+                   class="form-control col-5" placeholder="Дата начала полиса">
+        </div>
 
-			<input type="number" th:field="*{price}"
-				   class="form-control mb-4 col-4" placeholder="Цена">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">ФИО</span>
+            </div>
+            <input type="text" th:field="*{firstName}"
+                   class="form-control col-5" placeholder="ФИО">
+        </div>
 
-			<input type="number" th:field="*{sale}"
-				   class="form-control mb-4 col-4" placeholder="Базовая скидка">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Телефонный номер</span>
+            </div>
+            <input type="text" th:field="*{phoneNumber}"
+                   class="form-control col-5" placeholder="Телефонный номер">
+        </div>
 
-			<input type="number" th:field="*{delivery}"
-				   class="form-control mb-4 col-4" placeholder="Доставка">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Вид страхования</span>
+            </div>
+            <input type="text" th:field="*{kindInsurance}"
+                   class="form-control col-5" placeholder="Вид страхования">
+        </div>
 
-			<input type="number" th:field="*{totalAmount}"
-				   class="form-control mb-4 col-4" placeholder="Итог">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Базовый тариф</span>
+            </div>
+            <input type="number" th:field="*{baseRate}"
+                   class="form-control col-5" placeholder="Базовый тариф">
+        </div>
 
-			<input type="number" th:field="*{kv}"
-				   class="form-control mb-4 col-4" placeholder="КВ">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Цена</span>
+            </div>
+            <input type="number" th:field="*{price}"
+                   class="form-control col-5" placeholder="Цена">
+        </div>
 
-			<input type="number" th:field="*{kvAll}"
-				   class="form-control mb-4 col-4" placeholder="КВ общее">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Базовая скидка</span>
+            </div>
+            <input type="number" th:field="*{sale}"
+                   class="form-control col-5" placeholder="Базовая скидка">
+        </div>
 
-			<input type="number" th:field="*{kvTotal}"
-				   class="form-control mb-4 col-4" placeholder="КВ ИТОГ">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Доставка</span>
+            </div>
+            <input type="number" th:field="*{delivery}"
+                   class="form-control col-5" placeholder="Доставка">
+        </div>
 
-			<input type="number" th:field="*{dk}"
-					class="form-control mb-4 col-4" placeholder="ДК">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Итог</span>
+            </div>
+            <input type="number" th:field="*{totalAmount}"
+                   class="form-control col-5" placeholder="Итог">
+        </div>
 
-			<input type="number" th:field="*{adminSalary}"
-					class="form-control mb-4 col-4" placeholder="Зарплата Админам">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">КВ</span>
+            </div>
+            <input type="number" th:field="*{kv}"
+                   class="form-control col-5" placeholder="КВ">
+        </div>
 
-			<input type="number" th:field="*{ourSalasy}"
-					class="form-control mb-4 col-4" placeholder="Итог наш">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">КВ общее</span>
+            </div>
+            <input type="number" th:field="*{kvAll}"
+                   class="form-control col-5" placeholder="КВ общее">
+        </div>
 
-			<input type="number" th:field="*{cashbox}"
-					class="form-control mb-4 col-4" placeholder="Касса">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">КВ ИТОГ</span>
+            </div>
+            <input type="number" th:field="*{kvTotal}"
+                   class="form-control col-5" placeholder="КВ ИТОГ">
+        </div>
 
-			<input type="number" th:field="*{broughtAll}"
-					class="form-control mb-4 col-4" placeholder="Вывели общее">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">ДК</span>
+            </div>
+            <input type="number" th:field="*{dk}"
+                   class="form-control col-5" placeholder="ДК">
+        </div>
 
-			<input type="text" th:field="*{other}"
-					class="form-control mb-4 col-4" placeholder="Страхование">
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Зарплата Админам</span>
+            </div>
+            <input type="number" th:field="*{adminSalary}"
+                   class="form-control col-5" placeholder="Зарплата Админам">
+        </div>
 
-			<button type="submit" class="btn btn-info col-2">Save</button>
-						
-		</form>
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Итог наш</span>
+            </div>
+            <input type="number" th:field="*{ourSalasy}"
+                   class="form-control col-5" placeholder="Итог наш">
+        </div>
 
-		<hr>
-        <form action="#" th:action="@{/osagos/list}" method="GET">
-            <button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Список Осаго</button>
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Касса</span>
+            </div>
+            <input type="number" th:field="*{cashbox}"
+                   class="form-control col-5" placeholder="Касса">
+        </div>
 
-        </form>
-		
-	</div>
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Вывели общее</span>
+            </div>
+            <input type="number" th:field="*{broughtAll}"
+                   class="form-control col-5" placeholder="Вывели общее">
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Страхование</span>
+            </div>
+            <input type="text" th:field="*{other}"
+                   class="form-control col-5" placeholder="Страхование">
+        </div>
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+    <hr>
+    <form action="#" th:action="@{/osagos/list}" method="GET">
+        <button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Список Осаго</button>
+
+    </form>
+
+</div>
 </body>
 
 </html>

@@ -60,7 +60,6 @@ public class OsagoController {
     public String delete(@RequestParam("osagoId") int id) {
         osagoService.deleteById(id);
         return "redirect:/osagos/list";
-
     }
 }
 
