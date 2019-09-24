@@ -27,27 +27,84 @@
 			<!-- Add hidden form field to handle update -->
 			<input type="hidden" th:field="*{id}" />
 			
-			<input type="text" th:field="*{office}"
-					class="form-control mb-4 col-4" placeholder="First name">
-
 			<input type="text" th:field="*{agent}"
-					class="form-control mb-4 col-4" placeholder="Last name">
+					class="form-control mb-4 col-4" placeholder="Агент">
 
-			<input type="text" th:field="*{phoneNumber}"
-					class="form-control mb-4 col-4" placeholder="Phone Number">
+			<input type="text" th:field="*{office}"
+					class="form-control mb-4 col-4" placeholder="Офисы">
 
-			<input type="date" th:field="*{creationDate}"
-					class="form-control mb-4 col-4" placeholder="CreationDate">
+			<input type="number" th:field="*{numberOffice}"
+					class="form-control mb-4 col-4" placeholder="Номер офиса">
 
 			<input type="text" th:field="*{area}"
-					class="form-control mb-4 col-4" placeholder="Area">
+					class="form-control mb-4 col-4" placeholder="Территория">
+
+			<input type="date" th:field="*{creationDate}"
+				   class="form-control mb-4 col-4" placeholder="Дата">
+
+			<input type="date" th:field="*{startDate}"
+				   class="form-control mb-4 col-4" placeholder="Дата начала полиса">
+
+			<input type="text" th:field="*{firstName}"
+					class="form-control mb-4 col-4" placeholder="ФИО">
+
+			<input type="text" th:field="*{phoneNumber}"
+				   class="form-control mb-4 col-4" placeholder="Телефонный номер">
+
+			<input type="text" th:field="*{kindInsurance}"
+				   class="form-control mb-4 col-4" placeholder="Вид страхования">
+
+			<input type="number" th:field="*{baseRate}"
+				   class="form-control mb-4 col-4" placeholder="Базовый тариф">
+
+			<input type="number" th:field="*{price}"
+				   class="form-control mb-4 col-4" placeholder="Цена">
+
+			<input type="number" th:field="*{sale}"
+				   class="form-control mb-4 col-4" placeholder="Базовая скидка">
+
+			<input type="number" th:field="*{delivery}"
+				   class="form-control mb-4 col-4" placeholder="Доставка">
+
+			<input type="number" th:field="*{totalAmount}"
+				   class="form-control mb-4 col-4" placeholder="Итог">
+
+			<input type="number" th:field="*{kv}"
+				   class="form-control mb-4 col-4" placeholder="КВ">
+
+			<input type="number" th:field="*{kvAll}"
+				   class="form-control mb-4 col-4" placeholder="КВ общее">
+
+			<input type="number" th:field="*{kvTotal}"
+				   class="form-control mb-4 col-4" placeholder="КВ ИТОГ">
+
+			<input type="number" th:field="*{dk}"
+					class="form-control mb-4 col-4" placeholder="ДК">
+
+			<input type="number" th:field="*{adminSalary}"
+					class="form-control mb-4 col-4" placeholder="Зарплата Админам">
+
+			<input type="number" th:field="*{ourSalasy}"
+					class="form-control mb-4 col-4" placeholder="Итог наш">
+
+			<input type="number" th:field="*{cashbox}"
+					class="form-control mb-4 col-4" placeholder="Касса">
+
+			<input type="number" th:field="*{broughtAll}"
+					class="form-control mb-4 col-4" placeholder="Вывели общее">
+
+			<input type="text" th:field="*{other}"
+					class="form-control mb-4 col-4" placeholder="Страхование">
 
 			<button type="submit" class="btn btn-info col-2">Save</button>
 						
 		</form>
-	
+
 		<hr>
-		<a th:href="@{/osagos/list}">Back to Osago List</a>
+        <form action="#" th:action="@{/osagos/list}" method="GET">
+            <button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Список Осаго</button>
+
+        </form>
 		
 	</div>
 </body>

@@ -144,6 +144,7 @@ public class Osago implements java.io.Serializable {
         this.creationDate = creationDate;
     }
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     @Column(name = "start_date", length = 13)
     public Date getStartDate() {

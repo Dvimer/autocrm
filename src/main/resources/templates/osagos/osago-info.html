@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Info Osago</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Osago Directory</h3>
+    <hr>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Название</th>
+            <th>Значение</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Агент</td>
+            <td><span th:text="${osago.agent}"> Агент </span></td>
+        </tr>
+        <tr>
+            <td>Офисы</td>
+            <td><span th:text="${osago.office}"> Офисы </span></td>
+        </tr>
+        <tr>
+            <td>Номер офиса</td>
+            <td><span th:text="${osago.numberOffice}"> Номер офиса </span></td>
+        </tr>
+        <tr>
+            <td>Территория</td>
+            <td><span th:text="${osago.area}"> Территория </span></td>
+        </tr>
+        <tr>
+            <td>Дата</td>
+            <td><span th:text="${osago.creationDate}"> Дата </span></td>
+        </tr>
+        <tr>
+            <td>Дата начала полиса</td>
+            <td><span th:text="${osago.startDate}"> Дата </span></td>
+        </tr>
+        <tr>
+            <td>ФИО</td>
+            <td><span th:text="${osago.firstName}"> ФИО </span></td>
+        </tr>
+        <tr>
+            <td>  Телефонный номер </td>
+            <td><span th:text="${osago.phoneNumber}">  Телефонный номер </span></td>
+        </tr>
+        <tr>
+            <td>Вид страхования</td>
+            <td><span th:text="${osago.kindInsurance}"></span></td>
+        </tr>
+        <tr>
+            <td>Базовый тариф</td>
+            <td><span th:text="${osago.baseRate}"></span></td>
+        </tr>
+        <tr>
+            <td>Цена</td>
+            <td><span th:text="${osago.price}"></span></td>
+        </tr>
+        <tr>
+            <td>Базовая скидка</td>
+            <td><span th:text="${osago.sale}"></span></td>
+        </tr>
+        <tr>
+            <td>Доставка</td>
+            <td><span th:text="${osago.delivery}"></span></td>
+        </tr>
+        <tr>
+            <td>Итог</td>
+            <td><span th:text="${osago.totalAmount}"></span></td>
+        </tr>
+        <tr>
+            <td>КВ</td>
+            <td><span th:text="${osago.kv}"></span></td>
+        </tr>
+        <tr>
+            <td>КВ общее</td>
+            <td><span th:text="${osago.kvAll}"></span></td>
+        </tr>
+        <tr>
+            <td>КВ ИТОГ</td>
+            <td><span th:text="${osago.kvTotal}"></span></td>
+        </tr>
+        <tr>
+            <td>Базовый тариф</td>
+            <td><span th:text="${osago.baseRate}"></span></td>
+        </tr>
+        <tr>
+            <td>ДК</td>
+            <td><span th:text="${osago.dk}"></span></td>
+        </tr>
+        <tr>
+            <td>Зарплата Админам</td>
+            <td><span th:text="${osago.adminSalary}"></span></td>
+        </tr>
+        <tr>
+            <td>Итог наш</td>
+            <td><span th:text="${osago.ourSalasy}"></span></td>
+        </tr>
+        <tr>
+            <td>Касса</td>
+            <td><span th:text="${osago.cashbox}"></span></td>
+        </tr>
+        <tr>
+            <td>Вывели общее</td>
+            <td><span th:text="${osago.broughtAll}"></span></td>
+        </tr>
+        <tr>
+            <td>Страхование</td>
+            <td><span th:text="${osago.other}"></span></td>
+        </tr>
+        <tr>
+        </tbody>
+    </table>
+
+    </form>
+
+    <hr>
+
+    <form action="#" th:action="@{/osagos/list}" method="GET">
+        <button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Список Осаго</button>
+
+    </form>
+
+</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
