@@ -42,10 +42,29 @@ public class OsagoController {
 
     @PostMapping("/showFormInfo")
     public String showFormInfo(@RequestParam("osagoId") int id,
-                                    Model theModel) {
+                               Model theModel) {
         Osago osago = osagoService.findById(id);
         theModel.addAttribute("osago", osago);
         return "osagos/osago-info";
+    }
+
+
+    @PostMapping("/duplicate")
+    public String duplicate(@RequestParam("osagoId") int id,
+                            Model theModel) {
+        Osago osago = osagoService.findById(id);
+        Osago newOsago = new Osago();
+        mapOsago(osago, newOsago);
+
+        osagoService.save(newOsago);
+        return "redirect:/osagos/list";
+    }
+
+    private void mapOsago(Osago osago, Osago newOsago) {
+        newOsago.setAgent(osago.getAgent());
+        newOsago.setCreationDate(osago.getCreationDate());
+        newOsago.setOffice(osago.getOffice());
+        newOsago.setBaseRate(osago.getBaseRate());
     }
 
 
