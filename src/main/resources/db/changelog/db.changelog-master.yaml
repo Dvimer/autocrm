@@ -2,6 +2,7 @@ databaseChangeLog:
   - changeSet:
       id: 1
       author: dvimer
+      validCheckSum: ANY
       changes:
         - createTable:
             tableName: osago
@@ -48,43 +49,82 @@ databaseChangeLog:
                   type: varchar(100)
               - column:
                   name: base_rate
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: price
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: sale
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: delivery
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: total_amount
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: kv
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: kv_all
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: kv_total
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: dk
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: admin_salary
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: our_salasy
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: cashbox
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: brought_all
-                  type: numeric(20)
+                  type: numeric(20,2)
               - column:
                   name: other
                   type: varchar(300)
+
+  - changeSet:
+      id: 2
+      author: dvimer
+      validCheckSum: ANY
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+              - column:
+                  name: last_name
+                  type: varchar(50)
+              - column:
+                  name: role
+                  type: varchar(20)
+              - column:
+                  name: email
+                  type: varchar(50)
