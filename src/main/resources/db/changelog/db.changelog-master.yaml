@@ -18,6 +18,9 @@ databaseChangeLog:
                   name: agent
                   type: varchar(100)
               - column:
+                  name: kind_client
+                  type: varchar(100)
+              - column:
                   name: office
                   type: varchar(100)
               - column:
@@ -43,52 +46,58 @@ databaseChangeLog:
                   type: varchar(100)
               - column:
                   name: phone_number
-                  type: integer
+                  type: varchar(20)
+              - column:
+                  name: inshurance_name
+                  type: varchar(100)
+              - column:
+                  name: model_auto
+                  type: varchar(100)
               - column:
                   name: kind_insurance
                   type: varchar(100)
               - column:
                   name: base_rate
-                  type: numeric(20,2)
+                  type: numeric(10)
               - column:
                   name: price
-                  type: numeric(20,2)
+                  type: numeric(10,2)
               - column:
                   name: sale
-                  type: numeric(20,2)
+                  type: numeric(3)
+              - column:
+                  name: prica_with_sale
+                  type: numeric(10,2)
               - column:
                   name: delivery
-                  type: numeric(20,2)
+                  type: numeric(4)
               - column:
                   name: total_amount
-                  type: numeric(20,2)
+                  type: numeric(10,2)
               - column:
                   name: kv
-                  type: numeric(20,2)
+                  type: numeric(2)
               - column:
                   name: kv_all
-                  type: numeric(20,2)
+                  type: numeric(10,2)
               - column:
                   name: kv_total
-                  type: numeric(20,2)
+                  type: numeric(10)
               - column:
                   name: dk
-                  type: numeric(20,2)
+                  type: boolean
               - column:
                   name: admin_salary
-                  type: numeric(20,2)
+                  type: numeric(10)
               - column:
                   name: our_salasy
-                  type: numeric(20,2)
+                  type: numeric(10)
               - column:
                   name: cashbox
-                  type: numeric(20,2)
+                  type: numeric(10)
               - column:
                   name: brought_all
-                  type: numeric(20,2)
-              - column:
-                  name: other
-                  type: varchar(300)
+                  type: numeric(10)
 
   - changeSet:
       id: 2

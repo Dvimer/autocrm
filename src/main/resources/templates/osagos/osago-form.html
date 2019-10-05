@@ -2,14 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
+    <!--  meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet"
+          th:href="@{/css/demo.css}" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
     <title>Save Osago</title>
 </head>
 
@@ -32,74 +33,130 @@
             <div class="col-3">
                 <span class="input-group-text">Агент</span>
             </div>
-            <input type="text" th:field="*{agent}" class="form-control col-5" placeholder="Агент">
+
+            <select  th:field="*{agent}" class="form-control col-5">
+                <option value="Андрей">Андрей</option>
+                <option value="Эдгардт">Эдгардт</option>
+                <option value="Максим">Максим</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Тип клиента</span>
+            </div>
+            <select  th:field="*{kindClient}" class="form-control col-5">
+                <option value="50/50">50/50</option>
+                <option value="20/80 Эдгардт">20/80 Эдгардт</option>
+                <option value="80/20 Эдгардт">80/20 Эдгардт</option>
+                <option value="70/30 Андрей">70/30 Андрей</option>
+                <option value="30/70 Андрей">30/70 Андрей</option>
+            </select>
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Офисы</span>
             </div>
-            <input type="text" th:field="*{office}" class="form-control col-5" placeholder="Офисы">
-        </div>
-
-        <div class="input-group mb-3 row">
-            <div class="col-3">
-                <span class="input-group-text">Номер офиса</span>
-            </div>
-            <input type="number" th:field="*{numberOffice}" class="form-control col-5" placeholder="Номер офиса">
-        </div>
-        <div class="input-group mb-3 row">
-            <div class="col-3">
-                <span class="input-group-text">Территория</span>
-            </div>
-            <select th:field="*{area}" class="form-control col-5">
-                <option value="Moskow">Moskow</option>
-                <option value="Podolsk">Podolsk</option>
-                <option value="Klimovsk">Klimovsk</option>
+            <select  th:field="*{office}" class="form-control col-5">
+                <option value="Школа">Школа</option>
+                <option value="Сервис">Сервис</option>
             </select>
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
-                <span class="input-group-text">Дата</span>
+                <span class="input-group-text">№</span>
             </div>
-            <input type="date" th:field="*{creationDate}" class="form-control col-5" placeholder="Дата" required>
+            <input type="number" th:field="*{numberOffice}" class="form-control col-5" placeholder="Число">
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Территория</span>
+            </div>
+            <select  th:field="*{area}" class="form-control col-5">
+                <option value="Москва">Москва</option>
+                <option value="МО">МО</option>
+                <option value="Регион">Регион</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Дата создания заявки</span>
+            </div>
+            <input type="date" th:field="*{creationDate}" class="form-control col-5">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Дата начала полиса</span>
             </div>
-            <input type="date" th:field="*{startDate}" class="form-control col-5" placeholder="Дата начала полиса">
+            <input type="date" th:field="*{startDate}" class="form-control col-5">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">ФИО</span>
             </div>
-            <input type="text" th:field="*{firstName}" class="form-control col-5" placeholder="ФИО">
+            <input type="text" th:field="*{firstName}" class="form-control col-5" placeholder="Иванов Иван Иванович">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Телефонный номер</span>
             </div>
-            <input type="tel" th:field="*{phoneNumber}" class="form-control col-5" placeholder="Телефонный номер">
+            <input type="text" th:field="*{phoneNumber}" class="form-control col-5" placeholder="8(888)888-88-88">
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Страховая компания</span>
+            </div>
+            <select  th:field="*{inshuranceName}" class="form-control col-5">
+                <option value="Альфа">Альфа</option>
+                <option value="Ингос">Ингос</option>
+                <option value="Ресо">Ресо</option>
+                <option value="Ренесанс">Ренесанс</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Модель авто</span>
+            </div>
+            <input type="text" th:field="*{modelAuto}" class="form-control col-5" placeholder="Киа оптима">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Вид страхования</span>
             </div>
-            <input type="text" th:field="*{kindInsurance}" class="form-control col-5" placeholder="Вид страхования">
+            <select  th:field="*{kindInsurance}" class="form-control col-5">
+                <option value="Е-Осаго">Е-Осаго</option>
+                <option value="Осаго">Осаго</option>
+                <option value="Каско">Каско</option>
+                <option value="Доп. Страхование">Доп. Страхование</option>
+            </select>
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Базовый тариф</span>
             </div>
-            <input pattern="\d{1,8}.?\d{0,2}" th:field="*{baseRate}" class="form-control col-5"
-                   placeholder="Базовый тариф" required title="Число с плавающей точкой">
+            <select  th:field="*{baseRate}" class="form-control col-5">
+                <option value="3500">3500</option>
+                <option value="3540">3540</option>
+                <option value="3600">3600</option>
+                <option value="3700">3700</option>
+                <option value="3900">3900</option>
+                <option value="3912">3912</option>
+                <option value="4000">4000</option>
+                <option value="4108">4108</option>
+                <option value="4118">4118</option>
+                <option value="4130">4130</option>
+            </select>
         </div>
 
         <div class="input-group mb-3 row">
@@ -111,86 +168,89 @@
 
         <div class="input-group mb-3 row">
             <div class="col-3">
-                <span class="input-group-text">Базовая скидка</span>
+                <span class="input-group-text">Скидка</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{sale}" class="form-control col-5" placeholder="Базовая скидка">
+            <input \d{1,8}.?\d{0,2} th:field="*{sale}" class="form-control col-5" placeholder="Скидка">
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Цена со скидкой</span>
+            </div>
+            <input \d{1,8}.?\d{0,2} th:field="*{priceWithSale}" class="form-control col-5" placeholder="Цена со скидкой">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Доставка</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{delivery}" class="form-control col-5" placeholder="Доставка">
+            <input type="number" th:field="*{delivery}" class="form-control col-5" placeholder="Доставка">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Итог</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{totalAmount}" class="form-control col-5" placeholder="Итог">
+            <input type="number" th:field="*{totalAmount}" class="form-control col-5" placeholder="Итог">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">КВ</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{kv}" class="form-control col-5" placeholder="КВ">
+            <input type="number" th:field="*{kv}" class="form-control col-5" placeholder="ДВА знака ">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">КВ общее</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{kvAll}" class="form-control col-5" placeholder="КВ общее">
+            <input type="number" th:field="*{kvAll}" class="form-control col-5" placeholder="КВ общее">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">КВ ИТОГ</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{kvTotal}" class="form-control col-5" placeholder="КВ ИТОГ">
+            <input type="number" th:field="*{kvTotal}" class="form-control col-5" placeholder="КВ ИТОГ">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">ДК</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{dk}" class="form-control col-5" placeholder="ДК">
+            <select  th:field="*{dk}" class="form-control col-5">
+                <option value="true">Да</option>
+                <option value="false">Нет</option>
+            </select>
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Зарплата Админам</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{adminSalary}" class="form-control col-5" placeholder="Зарплата Админам">
+            <input type="number" th:field="*{adminSalary}" class="form-control col-5" placeholder="Зарплата Админам">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Итог наш</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{ourSalasy}" class="form-control col-5" placeholder="Итог наш">
+            <input type="number" th:field="*{ourSalasy}" class="form-control col-5" placeholder="Итог наш">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Касса</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{cashbox}" class="form-control col-5" placeholder="Касса">
+            <input type="number" th:field="*{cashbox}" class="form-control col-5" placeholder="Касса">
         </div>
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Вывели общее</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{broughtAll}" class="form-control col-5" placeholder="Вывели общее">
-        </div>
-
-        <div class="input-group mb-3 row">
-            <div class="col-3">
-                <span class="input-group-text">Страхование</span>
-            </div>
-            <input type="text" th:field="*{other}" class="form-control col-5" placeholder="Страхование">
+            <input type="number" th:field="*{broughtAll}" class="form-control col-5" placeholder="Вывели общее">
         </div>
 
         <button type="submit" class="btn btn-info col-2">Save</button>
