@@ -19,7 +19,7 @@ public class Osago implements java.io.Serializable {
 
 
     private Integer id;
-    private String agent;
+    private Agent agent;
     private String kindClient;
     private String office;
     private Integer numberOffice;
@@ -56,7 +56,7 @@ public class Osago implements java.io.Serializable {
         this.id = id;
     }
 
-    public Osago(Integer id, String agent, String kindClient, String office, Integer numberOffice, String area, Date creationDate, Date startDate, String firstName, String lastName, String patronomic, String phoneNumber, String inshuranceName, String modelAuto, String kindInsurance, Integer baseRate, BigDecimal price, Integer sale, BigDecimal priceWithSale, Integer delivery, BigDecimal totalAmount, Integer kv, BigDecimal kvAll, Integer kvTotal, boolean dk, Integer adminSalary, Integer ourSalasy, Integer cashbox, Integer broughtAll) {
+    public Osago(Integer id, Agent agent, String kindClient, String office, Integer numberOffice, String area, Date creationDate, Date startDate, String firstName, String lastName, String patronomic, String phoneNumber, String inshuranceName, String modelAuto, String kindInsurance, Integer baseRate, BigDecimal price, Integer sale, BigDecimal priceWithSale, Integer delivery, BigDecimal totalAmount, Integer kv, BigDecimal kvAll, Integer kvTotal, boolean dk, Integer adminSalary, Integer ourSalasy, Integer cashbox, Integer broughtAll) {
         this.id = id;
         this.agent = agent;
         this.kindClient = kindClient;
@@ -100,12 +100,13 @@ public class Osago implements java.io.Serializable {
     }
 
 
-    @Column(name = "agent", length = 100)
-    public String getAgent() {
+    @OneToOne (optional=false, cascade=CascadeType.ALL)
+    @JoinColumn (name="agent")
+    public Agent getAgent() {
         return this.agent;
     }
 
-    public void setAgent(String agent) {
+    public void setAgent(Agent agent) {
         this.agent = agent;
     }
 

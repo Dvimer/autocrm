@@ -1,7 +1,10 @@
 package com.dvimer.auto.crm.controller;
 
+import com.dvimer.auto.crm.hbm2java.Agent;
 import com.dvimer.auto.crm.hbm2java.Osago;
+import com.dvimer.auto.crm.service.AgentsService;
 import com.dvimer.auto.crm.service.OsagoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +15,15 @@ import java.util.List;
 @RequestMapping("/osagos")
 public class OsagoController {
 
+    @Autowired
     private OsagoService osagoService;
 
-    public OsagoController(OsagoService osagoService) {
-        this.osagoService = osagoService;
+    @Autowired
+    private AgentsService agentsService;
+
+    @ModelAttribute("agents")
+    public List<Agent> findAllAgent() {
+        return agentsService.findAll();
     }
 
     @GetMapping("/list")
@@ -81,21 +89,5 @@ public class OsagoController {
         return "redirect:/osagos/list";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

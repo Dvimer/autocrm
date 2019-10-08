@@ -46,7 +46,7 @@
 
             <td th:text="${tempOsago.office}"/>
             <td th:text="${tempOsago.kindClient}"/>
-            <td th:text="${tempOsago.startDate}"/>
+            <td th:text="${#dates.format(tempOsago.startDate, 'dd-MMM-yyyy')}"/>
             <td th:text="${tempOsago.firstName}"/>
             <td th:text="${tempOsago.phoneNumber}"/>
             <td th:text="${tempOsago.kindInsurance}"/>
@@ -80,6 +80,15 @@
 
                             <input type="hidden" name="osagoId" th:value="${tempOsago.id}"/>
                             <button type="submit" class="btn btn-success btn-sm mr-2">Клонировать</button>
+
+                        </form>
+                    </div>
+
+                    <div class="col-small">
+                        <!-- Add "update" button/link -->
+                        <form action="#" th:action="@{/agents/list}" method="GET">
+
+                            <button type="submit" class="btn btn-success btn-sm mr-2">Список агентов</button>
 
                         </form>
                     </div>

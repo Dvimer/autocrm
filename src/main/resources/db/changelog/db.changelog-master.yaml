@@ -16,7 +16,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: agent
-                  type: varchar(100)
+                  type: integer
               - column:
                   name: kind_client
                   type: varchar(100)
@@ -137,3 +137,30 @@ databaseChangeLog:
               - column:
                   name: email
                   type: varchar(50)
+  - changeSet:
+      id: 3
+      author: dvimer
+      changes:
+        - createTable:
+            tableName: agent
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+        - addForeignKeyConstraint:
+            baseColumnNames: agent
+            baseTableName: osago
+            constraintName: fk_osago_agent
+            deferrable: true
+            initiallyDeferred: true
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: agent

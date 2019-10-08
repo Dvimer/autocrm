@@ -30,7 +30,7 @@
         <tbody>
         <tr>
             <td>Агент</td>
-            <td><span th:text="${osago.agent}"> Агент </span></td>
+            <td><span th:text="${osago.agent.name}"> Агент </span></td>
         </tr>
         <tr>
             <td>Офисы</td>
@@ -46,11 +46,11 @@
         </tr>
         <tr>
             <td>Дата</td>
-            <td><span th:text="${osago.creationDate}"> Дата </span></td>
+            <td><span th:text="${#dates.format(osago.creationDate, 'dd-MMM-yyyy')}"> Дата </span></td>
         </tr>
         <tr>
             <td>Дата начала полиса</td>
-            <td><span th:text="${osago.startDate}"> Дата </span></td>
+            <td><span th:text="${#dates.format(osago.startDate, 'dd-MMM-yyyy')}"> Дата </span></td>
         </tr>
         <tr>
             <td>ФИО</td>

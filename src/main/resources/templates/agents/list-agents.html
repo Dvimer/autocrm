@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Osago Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Osago Directory</h3>
+    <hr>
+
+    <!-- Add a button -->
+    <a th:href="@{/agents/showFormForAdd}"
+       class="btn btn-primary btn-sm mb-3">
+        Add Agent
+    </a>
+    <form action="#" th:action="@{/osagos/list}" method="GET">
+        <button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Список осаго</button>
+
+    </form>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempAgent : ${agents}">
+
+            <td th:text="${tempAgent.id}"/>
+            <td th:text="${tempAgent.name}"/>
+
+            <td>
+                <div class="row">
+
+                    <div class="col-small">
+                        <!-- Add "update" button/link -->
+                        <form action="#" th:action="@{/agents/showFormForUpdate}" method="POST">
+
+                            <input type="hidden" name="agentId" th:value="${tempAgent.id}"/>
+                            <button type="submit" class="btn btn-success btn-sm mr-2">Обновить</button>
+
+                        </form>
+                    </div>
+
+                    <div class="col-small">
+                        <!-- Add "delete" button/link -->
+                        <form action="#" th:action="@{/agents/delete}" method="POST">
+
+                            <input type="hidden" name="agentId" th:value="${tempAgent.id}"/>
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="if (!(confirm('Are you sure you want to delete this agent?'))) return false">
+                                Удалить
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
+
+
+

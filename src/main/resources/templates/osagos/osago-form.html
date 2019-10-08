@@ -35,9 +35,7 @@
             </div>
 
             <select  th:field="*{agent}" class="form-control col-5">
-                <option value="Андрей">Андрей</option>
-                <option value="Эдгардт">Эдгардт</option>
-                <option value="Максим">Максим</option>
+                <option th:each="tempAgent : ${agents}" th:value="${tempAgent.id}" th:text="${tempAgent.name}" th:selected="${tempAgent} == *{agent}">
             </select>
         </div>
 
@@ -198,7 +196,7 @@
             <div class="col-3">
                 <span class="input-group-text">КВ</span>
             </div>
-            <input type="number" th:field="*{kv}" class="form-control col-5" placeholder="ДВА знака ">
+            <input pattern="\d{2}" th:field="*{kv}" class="form-control col-5" placeholder="12" title="Максимум два знака">
         </div>
 
         <div class="input-group mb-3 row">
