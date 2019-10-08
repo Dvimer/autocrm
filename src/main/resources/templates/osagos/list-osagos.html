@@ -46,7 +46,7 @@
 
             <td th:text="${tempOsago.office}"/>
             <td th:text="${tempOsago.kindClient}"/>
-            <td th:text="${tempOsago.startDate}"/>
+            <td th:text="${#dates.format(tempOsago.startDate,'dd-MM-yyyy')}"/>
             <td th:text="${tempOsago.firstName}"/>
             <td th:text="${tempOsago.phoneNumber}"/>
             <td th:text="${tempOsago.kindInsurance}"/>

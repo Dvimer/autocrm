@@ -46,11 +46,11 @@
         </tr>
         <tr>
             <td>Дата</td>
-            <td><span th:text="${osago.creationDate}"> Дата </span></td>
+            <td><span th:text="${#dates.format(osago.creationDate,'dd-MM-yyyy')}"> Дата </span></td>
         </tr>
         <tr>
             <td>Дата начала полиса</td>
-            <td><span th:text="${osago.startDate}"> Дата </span></td>
+            <td><span th:text="${#dates.format(osago.startDate,'dd-MM-yyyy')}"> Дата </span></td>
         </tr>
         <tr>
             <td>ФИО</td>
