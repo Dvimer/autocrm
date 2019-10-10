@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<div lang="en" th:replace="fragments/header :: header"></div>
 <div class="container">
 
     <h3>Osago Directory</h3>
@@ -57,7 +57,7 @@
             <td><span th:text="${osago.firstName}"> ФИО </span></td>
         </tr>
         <tr>
-            <td>  Телефонный номер </td>
+            <td> Телефонный номер</td>
             <td><span th:text="${osago.phoneNumber}">  Телефонный номер </span></td>
         </tr>
         <tr>
@@ -130,6 +130,7 @@
     </form>
 
 </div>
+<div lang="en" th:replace="fragments/footer :: footer"></div>
 </body>
 
 </html>

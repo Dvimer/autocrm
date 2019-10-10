@@ -14,21 +14,16 @@
 </head>
 
 <body>
-
+<div lang="en" th:replace="fragments/header :: header"></div>
 <div class="container">
 
-    <h3>Osago Directory</h3>
+    <h3>Управление Агентами</h3>
     <hr>
 
-    <!-- Add a button -->
-    <a th:href="@{/agents/showFormForAdd}"
-       class="btn btn-primary btn-sm mb-3">
-        Add Agent
-    </a>
-    <form action="#" th:action="@{/osagos/list}" method="GET">
-        <button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Список осаго</button>
-
-    </form>
+    <div class="btn-group mb-2" role="group" aria-label="Button group with nested dropdown">
+        <a th:href="@{/osagos/list}" type="button" class="btn btn-secondary">Осаго</a>
+        <a th:href="@{/agents/showFormForAdd}" type="button" class="btn btn-secondary">Добавить Агента</a>
+    </div>
 
 
     <table class="table table-bordered table-striped">
@@ -80,7 +75,7 @@
     </table>
 
 </div>
-
+<div lang="en" th:replace="fragments/footer :: footer"> </div>
 </body>
 </html>
 

@@ -10,21 +10,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>Osago Directory</title>
+    <title>Osagos Directory</title>
 </head>
 
 <body>
-
+<div lang="en" th:replace="fragments/header :: header"></div>
 <div class="container">
-
     <h3>Osago Directory</h3>
     <hr>
 
-    <!-- Add a button -->
-    <a th:href="@{/osagos/showFormForAdd}"
-       class="btn btn-primary btn-sm mb-3">
-        Add Osago
-    </a>
+    <div class="btn-group mb-2" role="group" aria-label="Button group with nested dropdown">
+        <a th:href="@{/osagos/showFormForAdd}" type="button" class="btn btn-secondary">Добавить Осаго</a>
+        <a th:href="@{/agents/list}" type="button" class="btn btn-secondary">Агенты</a>
+    </div>
+    </ul>
 
 
     <table class="table table-bordered table-striped">
@@ -53,47 +52,38 @@
             <td th:text="${tempOsago.modelAuto}"/>
 
             <td>
-                <div class="row">
+                <div class="btn-group" role="group">
 
-                    <div class="col-small">
+                    <div >
                         <!-- Add "info" button/link -->
                         <form action="#" th:action="@{/osagos/showFormInfo}" method="POST">
 
                             <input type="hidden" name="osagoId" th:value="${tempOsago.id}"/>
-                            <button type="submit" class="btn btn-info btn-sm ml-3 mr-2">Инфо</button>
+                            <button type="submit" class="btn btn-info btn-sm ml-3">Инфо</button>
 
                         </form>
                     </div>
-                    <div class="col-small">
+                    <div >
                         <!-- Add "update" button/link -->
                         <form action="#" th:action="@{/osagos/showFormForUpdate}" method="POST">
 
                             <input type="hidden" name="osagoId" th:value="${tempOsago.id}"/>
-                            <button type="submit" class="btn btn-success btn-sm mr-2">Обновить</button>
+                            <button type="submit" class="btn btn-success btn-sm">Обновить</button>
 
                         </form>
                     </div>
 
-                    <div class="col-small">
+                    <div >
                         <!-- Add "update" button/link -->
                         <form action="#" th:action="@{/osagos/duplicate}" method="POST">
 
                             <input type="hidden" name="osagoId" th:value="${tempOsago.id}"/>
-                            <button type="submit" class="btn btn-success btn-sm mr-2">Клонировать</button>
+                            <button type="submit" class="btn btn-success btn-sm">Клонировать</button>
 
                         </form>
                     </div>
 
-                    <div class="col-small">
-                        <!-- Add "update" button/link -->
-                        <form action="#" th:action="@{/agents/list}" method="GET">
-
-                            <button type="submit" class="btn btn-success btn-sm mr-2">Список агентов</button>
-
-                        </form>
-                    </div>
-
-                    <div class="col-small">
+                    <div >
                         <!-- Add "delete" button/link -->
                         <form action="#" th:action="@{/osagos/delete}" method="POST">
 
@@ -112,7 +102,7 @@
         </tr>
         </tbody>
     </table>
-
+    <div lang="en" th:replace="fragments/footer :: footer"></div>
 </div>
 
 </body>
