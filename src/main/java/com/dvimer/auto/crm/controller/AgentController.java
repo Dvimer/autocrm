@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -47,6 +49,13 @@ public class AgentController {
     @PostMapping("/delete")
     public String delete(@RequestParam("agentId") int id) {
         agentsService.deleteById(id);
+        return "redirect:/agents/list";
+    }
+
+    @ExceptionHandler
+    public String resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+                                   Object o, Exception e) {
+        System.out.println("Spring MVC ExceptionHandler handling");
         return "redirect:/agents/list";
     }
 }

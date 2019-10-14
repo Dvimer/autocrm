@@ -28,11 +28,10 @@ public class OsagoServiceImpl implements OsagoService {
 
         Optional<Osago> result = osagoRepository.findById(id);
 
-        Osago osago = null;
+        Osago osago;
 
-        if (result.isPresent()) {
-            osago = result.orElseGet(Osago::new);
-        } else {
+        if (result.isPresent()) osago = result.orElseGet(Osago::new);
+        else {
             // we didn't find the employee
             throw new RuntimeException("Did not find employee id - " + id);
         }

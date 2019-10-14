@@ -100,7 +100,7 @@ public class Osago implements java.io.Serializable {
     }
 
 
-    @OneToOne (optional=false, cascade=CascadeType.ALL)
+    @OneToOne (optional=false)
     @JoinColumn (name="agent")
     public Agent getAgent() {
         return this.agent;

@@ -23,7 +23,7 @@ public class OsagoController {
 
     @ModelAttribute("agents")
     public List<Agent> findAllAgent() {
-        return agentsService.findAll();
+        return agentsService.findAllNotDelete();
     }
 
     @GetMapping("/list")
@@ -78,8 +78,15 @@ public class OsagoController {
 
     @PostMapping("/save")
     public String saveOsago(@ModelAttribute("osago") Osago osago) {
-        osagoService.save(osago);
-        return "redirect:/osagos/list";
+        if (validate(osago)) {
+            osagoService.save(osago);
+            return "redirect:/osagos/list";
+        }
+        return "redirect:/error/403.html";
+    }
+
+    private boolean validate(Osago osago) {
+        return osago.getAgent() != null;
     }
 
 

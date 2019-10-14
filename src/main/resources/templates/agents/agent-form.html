@@ -36,6 +36,16 @@
 
             <input type="text" th:field="*{name}" class="form-control col-5" placeholder="Имя">
         </div>
+    <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Удален</span>
+            </div>
+
+        <select  th:field="*{deleted}" class="form-control col-5">
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
+        </select>
+        </div>
 
 
         <button type="submit" class="btn btn-info col-2">Save</button>

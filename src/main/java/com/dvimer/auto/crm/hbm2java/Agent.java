@@ -8,13 +8,15 @@ import java.util.Objects;
 public class Agent implements java.io.Serializable {
     private Integer id;
     private String name;
+    private boolean deleted;
 
     public Agent() {
     }
 
-    public Agent(Integer id, String name) {
+    public Agent(Integer id, String name, boolean deleted) {
         this.id = id;
         this.name = name;
+        this.deleted = deleted;
     }
 
     public Agent(Integer id) {
@@ -38,6 +40,15 @@ public class Agent implements java.io.Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Column(name = "deleted")
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     @Override

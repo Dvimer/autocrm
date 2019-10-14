@@ -22,22 +22,23 @@ public class AgentsServiceImpl implements AgentsService {
 
     @Override
     public List<Agent> findAll() {
+
         return agentsRepository.findAll();
     }
 
+    @Override
+    public List<Agent> findByName(String name) {
+        return agentsRepository.findByName(name);
+    }
 
     @Override
     public Agent findById(int id) {
-
         Optional<Agent> result = agentsRepository.findById(id);
-
-        Agent agent = null;
-
+        Agent agent;
         if (result.isPresent()) {
             agent = result.orElseGet(Agent::new);
         } else {
-            // we didn't find the employee
-            throw new RuntimeException("Did not find employee id - " + id);
+            throw new RuntimeException("Did not find agent id - " + id);
         }
         return agent;
     }
@@ -49,6 +50,19 @@ public class AgentsServiceImpl implements AgentsService {
 
     @Override
     public void deleteById(int id) {
-        agentsRepository.deleteById(id);
+
+        agentsRepository.updateWhereId(true, id);
+//        Optional<Agent> byId = agentsRepository.findById(id);
+//        //todo проверить перед удалением
+//        if (byId.isPresent()) {
+//            Agent agent = byId.get();
+//            agent.setDeleted(true);
+//            agentsRepository.save(agent);
+//        }
+    }
+
+    @Override
+    public List<Agent> findAllNotDelete() {
+        return agentsRepository.findByDeleted(false);
     }
 }

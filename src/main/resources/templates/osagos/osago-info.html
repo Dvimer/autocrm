@@ -16,8 +16,11 @@
 <body>
 <div lang="en" th:replace="fragments/header :: header"></div>
 <div class="container">
-
-    <h3>Osago Directory</h3>
+    <h3>Информация об осаго</h3>
+    <hr>
+    <div class="btn-group mb-2" role="group" aria-label="Button group with nested dropdown">
+        <a th:href="@{/osagos/list}" type="button" class="btn btn-secondary">Осаго</a>
+    </div>
     <hr>
 
     <table class="table table-bordered table-striped">
