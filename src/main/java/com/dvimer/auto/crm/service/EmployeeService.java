@@ -1,17 +1,38 @@
 package com.dvimer.auto.crm.service;
 
+import com.dvimer.auto.crm.dao.EmployeeRepository;
 import com.dvimer.auto.crm.entity.Employee;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface EmployeeService {
+@Service
+@RequiredArgsConstructor
+public class EmployeeService {
 
-     List<Employee> findAll();
+    private final EmployeeRepository employeeRepository;
 
-     Employee findById(int theId);
+    public List<Employee> findAll() {
+        return employeeRepository.findAllByOrderByLastNameAsc();
+    }
 
-     void save(Employee theEmployee);
+    public Employee findById(int id) {
+        return employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
+    }
 
-     void deleteById(int theId);
+    public void save(Employee theEmployee) {
+        employeeRepository.save(theEmployee);
+    }
+
+    public void deleteById(int theId) {
+        employeeRepository.deleteById(theId);
+    }
 
 }
+
+
+
+
+
+

@@ -1,15 +1,31 @@
 package com.dvimer.auto.crm.service;
 
-import com.dvimer.auto.crm.hbm2java.Osago;
+import com.dvimer.auto.crm.dao.OsagoRepository;
+import com.dvimer.auto.crm.entity.Osago;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface OsagoService {
-    List<Osago> findAll();
+@Service
+@RequiredArgsConstructor
+public class OsagoService {
 
-    Osago findById(int id);
+    private final OsagoRepository osagoRepository;
 
-    void save(Osago osago);
+    public List<Osago> findAll() {
+        return osagoRepository.findAll();
+    }
 
-    void deleteById(int id);
+    public Osago findById(int id) {
+        return osagoRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
+    }
+
+    public void save(Osago osago) {
+        osagoRepository.save(osago);
+    }
+
+    public void deleteById(int id) {
+        osagoRepository.deleteById(id);
+    }
 }

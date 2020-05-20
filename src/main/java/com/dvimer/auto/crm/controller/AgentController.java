@@ -1,7 +1,8 @@
 package com.dvimer.auto.crm.controller;
 
-import com.dvimer.auto.crm.hbm2java.Agent;
-import com.dvimer.auto.crm.service.AgentsService;
+import com.dvimer.auto.crm.entity.AgentEnity;
+import com.dvimer.auto.crm.service.AgentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,43 +13,43 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/agents")
 public class AgentController {
 
-    @Autowired
-    private AgentsService agentsService;
+    private final AgentService agentService;
 
     @GetMapping("/list")
     public String listAgents(Model theModel) {
-        List<Agent> agents = agentsService.findAll();
-        theModel.addAttribute("agents", agents);
+        List<AgentEnity> agentEnities = agentService.findAll();
+        theModel.addAttribute("agents", agentEnities);
         return "agents/list-agents";
     }
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model theModel) {
-        Agent agent = new Agent();
-        theModel.addAttribute("agent", agent);
+        AgentEnity agentEnity = new AgentEnity();
+        theModel.addAttribute("agent", agentEnity);
         return "agents/agent-form";
     }
 
     @PostMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("agentId") int id,
                                     Model theModel) {
-        Agent agent = agentsService.findById(id);
-        theModel.addAttribute("agent", agent);
+        AgentEnity agentEnity = agentService.findById(id);
+        theModel.addAttribute("agent", agentEnity);
         return "agents/agent-form";
     }
 
     @PostMapping("/save")
-    public String saveAgent(@ModelAttribute("agent") Agent agent) {
-        agentsService.save(agent);
+    public String saveAgent(@ModelAttribute("agent") AgentEnity agentEnity) {
+        agentService.save(agentEnity);
         return "redirect:/agents/list";
     }
 
     @PostMapping("/delete")
     public String delete(@RequestParam("agentId") int id) {
-        agentsService.deleteById(id);
+        agentService.deleteById(id);
         return "redirect:/agents/list";
     }
 

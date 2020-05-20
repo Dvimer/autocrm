@@ -1,9 +1,10 @@
 package com.dvimer.auto.crm.controller;
 
-import com.dvimer.auto.crm.hbm2java.Agent;
-import com.dvimer.auto.crm.hbm2java.Osago;
-import com.dvimer.auto.crm.service.AgentsService;
+import com.dvimer.auto.crm.entity.AgentEnity;
+import com.dvimer.auto.crm.entity.Osago;
+import com.dvimer.auto.crm.service.AgentService;
 import com.dvimer.auto.crm.service.OsagoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,18 +13,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/osagos")
 public class OsagoController {
 
-    @Autowired
-    private OsagoService osagoService;
-
-    @Autowired
-    private AgentsService agentsService;
+    private final OsagoService osagoService;
+    private final AgentService agentService;
 
     @ModelAttribute("agents")
-    public List<Agent> findAllAgent() {
-        return agentsService.findAllNotDelete();
+    public List<AgentEnity> findAllAgent() {
+        return agentService.findAllNotDelete();
     }
 
     @GetMapping("/list")
@@ -41,16 +40,14 @@ public class OsagoController {
     }
 
     @PostMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("osagoId") int id,
-                                    Model theModel) {
+    public String showFormForUpdate(@RequestParam("osagoId") int id, Model theModel) {
         Osago osago = osagoService.findById(id);
         theModel.addAttribute("osago", osago);
         return "osagos/osago-form";
     }
 
     @PostMapping("/showFormInfo")
-    public String showFormInfo(@RequestParam("osagoId") int id,
-                               Model theModel) {
+    public String showFormInfo(@RequestParam("osagoId") int id, Model theModel) {
         Osago osago = osagoService.findById(id);
         theModel.addAttribute("osago", osago);
         return "osagos/osago-info";
@@ -58,8 +55,7 @@ public class OsagoController {
 
 
     @PostMapping("/duplicate")
-    public String duplicate(@RequestParam("osagoId") int id,
-                            Model theModel) {
+    public String duplicate(@RequestParam("osagoId") int id, Model theModel) {
         Osago osago = osagoService.findById(id);
         Osago newOsago = new Osago();
         mapOsago(osago, newOsago);

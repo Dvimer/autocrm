@@ -1,9 +1,9 @@
 spring:
   datasource:
-    platform: postgresql
-    url: jdbc:postgresql://localhost:5433/postgres
+    platform: org.hibernate.dialect.PostgreSQLDialect
+    url: jdbc:postgresql://localhost:5431/postgres
     username: postgres
-    password: admin1
+    password: postgres
     hikari:
       schema: public
     separator: ;
