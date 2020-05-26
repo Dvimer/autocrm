@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <title>Osago Directory</title>
+</head>
+
+<body>
+<div lang="en" th:replace="fragments/header :: header"></div>
+<div class="container">
+    <h3>Страховые компании</h3>
+    <hr>
+    <div class="btn-group mb-2" role="group" aria-label="Button group with nested dropdown">
+        <a th:href="@{/osagos/list}" type="button" class="btn btn-secondary">Осаго</a>
+        <a th:href="@{/location/showFormForAdd}" type="button" class="btn btn-secondary">Добавить Страховую</a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <!--            <th>ID</th>-->
+            <th>Имя</th>
+            <th>Статус</th>
+            <th>Дата создания</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempLocation : ${locations}">
+
+            <!--            <td th:text="${tempAgent.id}"/>-->
+            <td th:text="${tempLocation.name}"/>
+            <td th:text="${tempLocation.status}"/>
+            <td th:text="${tempLocation.createdAt}"/>
+
+            <td>
+                <div class="row">
+                    <div class="col-small">
+                        <form action="#" th:action="@{/location/showFormForUpdate}" method="POST">
+                            <input type="hidden" name="locationId" th:value="${tempLocation.id}"/>
+                            <button type="submit" class="btn btn-success btn-sm mr-2">Обновить</button>
+                        </form>
+                    </div>
+                    <div class="col-small">
+                        <form action="#" th:action="@{/location/delete}" method="POST">
+                            <input type="hidden" name="locationId" th:value="${tempLocation.id}"/>
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="if (!(confirm('Are you sure you want to delete this insure?'))) return false">
+                                Удалить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<div lang="en" th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+
+
+

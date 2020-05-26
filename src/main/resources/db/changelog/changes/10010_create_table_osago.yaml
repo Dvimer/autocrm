@@ -20,14 +20,20 @@ databaseChangeLog:
                   name: kind_client
                   type: varchar(100)
               - column:
-                  name: office
-                  type: varchar(100)
+                  name: office_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_office_osago
+                    references: office(id)
               - column:
                   name: number_office
                   type: numeric(5)
               - column:
-                  name: area
-                  type: varchar(100)
+                  name: location_id
+                  type: uuid
+                  constraints:
+                    foreignKeyName: fk_location_osago
+                    references: location(id)
               - column:
                   name: creation_date
                   type: date
