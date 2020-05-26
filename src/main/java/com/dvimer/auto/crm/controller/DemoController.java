@@ -1,7 +1,6 @@
 package com.dvimer.auto.crm.controller;
 
-import com.dvimer.auto.crm.entity.Employee;
-import org.springframework.context.annotation.Role;
+import com.dvimer.auto.crm.dao.entity.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

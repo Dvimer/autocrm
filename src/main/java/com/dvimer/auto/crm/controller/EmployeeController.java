@@ -3,6 +3,7 @@ package com.dvimer.auto.crm.controller;
 import java.util.Date;
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.dvimer.auto.crm.entity.Employee;
+import com.dvimer.auto.crm.dao.entity.Employee;
 import com.dvimer.auto.crm.service.EmployeeService;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    private EmployeeService employeeService;
-
-    public EmployeeController(EmployeeService theEmployeeService) {
-        employeeService = theEmployeeService;
-    }
+    private final EmployeeService employeeService;
 
     @GetMapping("/list")
     public String listEmployees(Model theModel) {

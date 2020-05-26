@@ -1,6 +1,6 @@
-package com.dvimer.auto.crm.dao;
+package com.dvimer.auto.crm.dao.repository;
 
-import com.dvimer.auto.crm.entity.AgentEnity;
+import com.dvimer.auto.crm.dao.entity.AgentEnity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,16 +1,18 @@
 package com.dvimer.auto.crm.controller;
 
-import com.dvimer.auto.crm.entity.AgentEnity;
-import com.dvimer.auto.crm.entity.Osago;
+import com.dvimer.auto.crm.dao.entity.AgentEnity;
+import com.dvimer.auto.crm.dao.entity.InsurerEntity;
+import com.dvimer.auto.crm.dao.entity.Osago;
 import com.dvimer.auto.crm.service.AgentService;
+import com.dvimer.auto.crm.service.InsurerService;
 import com.dvimer.auto.crm.service.OsagoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -19,10 +21,16 @@ public class OsagoController {
 
     private final OsagoService osagoService;
     private final AgentService agentService;
+    private final InsurerService insurerService;
 
     @ModelAttribute("agents")
     public List<AgentEnity> findAllAgent() {
         return agentService.findAllNotDelete();
+    }
+
+    @ModelAttribute("insurers")
+    public List<InsurerEntity> findAllInsurers() {
+        return insurerService.findAll();
     }
 
     @GetMapping("/list")
@@ -40,14 +48,14 @@ public class OsagoController {
     }
 
     @PostMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("osagoId") int id, Model theModel) {
+    public String showFormForUpdate(@RequestParam("osagoId") UUID id, Model theModel) {
         Osago osago = osagoService.findById(id);
         theModel.addAttribute("osago", osago);
         return "osagos/osago-form";
     }
 
     @PostMapping("/showFormInfo")
-    public String showFormInfo(@RequestParam("osagoId") int id, Model theModel) {
+    public String showFormInfo(@RequestParam("osagoId") UUID id, Model theModel) {
         Osago osago = osagoService.findById(id);
         theModel.addAttribute("osago", osago);
         return "osagos/osago-info";
@@ -55,7 +63,7 @@ public class OsagoController {
 
 
     @PostMapping("/duplicate")
-    public String duplicate(@RequestParam("osagoId") int id, Model theModel) {
+    public String duplicate(@RequestParam("osagoId") UUID id, Model theModel) {
         Osago osago = osagoService.findById(id);
         Osago newOsago = new Osago();
         mapOsago(osago, newOsago);
@@ -87,7 +95,7 @@ public class OsagoController {
 
 
     @PostMapping("/delete")
-    public String delete(@RequestParam("osagoId") int id) {
+    public String delete(@RequestParam("osagoId") UUID id) {
         osagoService.deleteById(id);
         return "redirect:/osagos/list";
     }

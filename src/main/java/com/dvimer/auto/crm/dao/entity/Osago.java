@@ -1,4 +1,4 @@
-package com.dvimer.auto.crm.entity;
+package com.dvimer.auto.crm.dao.entity;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -13,9 +14,8 @@ import java.util.Date;
 )
 public class Osago implements java.io.Serializable {
     @Id
-    @Column(name = "id", unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue
+    private UUID id;
     @OneToOne(optional = false)
     @JoinColumn(name = "agent")
     private AgentEnity agent;
@@ -33,13 +33,13 @@ public class Osago implements java.io.Serializable {
     private String lastName;
     private String patronomic;
     private String phoneNumber;
-    private String inshuranceName;
+    @OneToOne
+    private InsurerEntity insurer;
     private String modelAuto;
     private String kindInsurance;
     private Integer baseRate;
     private BigDecimal price;
     private Integer sale;
-    @Column(name = "prica_with_sale")
     private BigDecimal priceWithSale;
     private Integer delivery;
     private BigDecimal totalAmount;

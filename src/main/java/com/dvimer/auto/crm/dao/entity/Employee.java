@@ -1,4 +1,4 @@
-package com.dvimer.auto.crm.entity;
+package com.dvimer.auto.crm.dao.entity;
 
 import lombok.Data;
 

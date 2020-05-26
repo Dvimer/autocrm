@@ -112,11 +112,8 @@
             <div class="col-3">
                 <span class="input-group-text">Страховая компания</span>
             </div>
-            <select  th:field="*{inshuranceName}" class="form-control col-5">
-                <option value="Альфа">Альфа</option>
-                <option value="Ингос">Ингос</option>
-                <option value="Ресо">Ресо</option>
-                <option value="Ренесанс">Ренесанс</option>
+            <select required th:field="*{insurer}" class="form-control col-5">
+                <option th:each="tempInsurer : ${insurers}" th:value="${tempInsurer.id}" th:text="${tempInsurer.name}" th:selected="${tempInsurer} == *{insurer}">
             </select>
         </div>
 

@@ -1,7 +1,7 @@
 package com.dvimer.auto.crm.service;
 
-import com.dvimer.auto.crm.dao.EmployeeRepository;
-import com.dvimer.auto.crm.entity.Employee;
+import com.dvimer.auto.crm.dao.repository.EmployeeRepository;
+import com.dvimer.auto.crm.dao.entity.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

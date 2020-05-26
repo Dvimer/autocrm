@@ -1,11 +1,12 @@
 package com.dvimer.auto.crm.service;
 
-import com.dvimer.auto.crm.dao.OsagoRepository;
-import com.dvimer.auto.crm.entity.Osago;
+import com.dvimer.auto.crm.dao.repository.OsagoRepository;
+import com.dvimer.auto.crm.dao.entity.Osago;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -17,7 +18,7 @@ public class OsagoService {
         return osagoRepository.findAll();
     }
 
-    public Osago findById(int id) {
+    public Osago findById(UUID id) {
         return osagoRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
     }
 
@@ -25,7 +26,7 @@ public class OsagoService {
         osagoRepository.save(osago);
     }
 
-    public void deleteById(int id) {
+    public void deleteById(UUID id) {
         osagoRepository.deleteById(id);
     }
 }
