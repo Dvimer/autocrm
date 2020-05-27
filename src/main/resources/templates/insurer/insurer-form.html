@@ -32,19 +32,9 @@
         </div>
         <div class="input-group mb-3 row">
             <div class="col-3">
-                <span class="input-group-text">Сайт компании</span>
+                <span class="input-group-text">Базовый тариф</span>
             </div>
             <input type="text" th:field="*{url}" class="form-control col-5" placeholder="http://....">
-        </div>
-
-        <div class="input-group mb-3 row">
-            <div class="col-3">
-                <span class="input-group-text">Удален</span>
-            </div>
-            <select th:field="*{status}" class="form-control col-5">
-                <option value="deleted">Удалить</option>
-                <option value="active">Активировать</option>
-            </select>
         </div>
         <button type="submit" class="btn btn-info col-2">Сохранить</button>
     </form>

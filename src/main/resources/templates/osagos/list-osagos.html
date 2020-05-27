@@ -46,7 +46,7 @@
         <tbody>
         <tr th:each="tempOsago : ${osago}">
 
-            <td th:text="${tempOsago.office}"/>
+            <td th:text="${tempOsago.office.name}"/>
             <td th:text="${tempOsago.kindClient}"/>
             <td th:text="${#dates.format(tempOsago.startDate, 'dd-MMM-yyyy')}"/>
             <td th:text="${tempOsago.firstName}"/>
@@ -72,16 +72,6 @@
 
                             <input type="hidden" name="osagoId" th:value="${tempOsago.id}"/>
                             <button type="submit" class="btn btn-success btn-sm">Обновить</button>
-
-                        </form>
-                    </div>
-
-                    <div>
-                        <!-- Add "update" button/link -->
-                        <form action="#" th:action="@{/osagos/duplicate}" method="POST">
-
-                            <input type="hidden" name="osagoId" th:value="${tempOsago.id}"/>
-                            <button type="submit" class="btn btn-success btn-sm">Клонировать</button>
 
                         </form>
                     </div>

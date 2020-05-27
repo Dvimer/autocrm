@@ -3,6 +3,7 @@ package com.dvimer.auto.crm.service;
 import com.dvimer.auto.crm.dao.entity.AgentEnity;
 import com.dvimer.auto.crm.dao.repository.AgentsRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,11 +15,7 @@ public class AgentService {
     private final AgentsRepository agentsRepository;
 
     public List<AgentEnity> findAll() {
-        return agentsRepository.findAll();
-    }
-
-    public List<AgentEnity> findByName(String name) {
-        return agentsRepository.findByName(name);
+        return agentsRepository.findAll(new Sort(Sort.Direction.ASC,"name"));
     }
 
     public AgentEnity findById(int id) {
@@ -26,14 +23,11 @@ public class AgentService {
     }
 
     public void save(AgentEnity agentEnity) {
+        agentEnity.setStatus("ACTIVE");
         agentsRepository.save(agentEnity);
     }
 
     public void deleteById(int id) {
-        agentsRepository.updateWhereId(true, id);
-    }
-
-    public List<AgentEnity> findAllNotDelete() {
-        return agentsRepository.findByDeleted(false);
+        agentsRepository.deleteById(id);
     }
 }

@@ -28,6 +28,7 @@ public class AgentController {
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model theModel) {
         AgentEnity agentEnity = new AgentEnity();
+        agentEnity.setStatus("ACTIVE");
         theModel.addAttribute("agent", agentEnity);
         return "agents/agent-form";
     }

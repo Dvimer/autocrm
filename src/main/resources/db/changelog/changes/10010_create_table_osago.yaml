@@ -41,6 +41,17 @@ databaseChangeLog:
                   name: start_date
                   type: date
               - column:
+                  name: periodic_in_month
+                  type: integer
+              - column:
+                  name: police_end_at
+                  type: date
+              - column:
+                  name: status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
                   name: first_name
                   type: varchar(100)
               - column:

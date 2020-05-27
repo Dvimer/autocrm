@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet"
-          th:href="@{/css/demo.css}" />
+          th:href="@{/css/demo.css}"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -35,7 +35,8 @@
             </div>
 
             <select required th:field="*{agent}" class="form-control col-5">
-                <option th:each="tempAgent : ${agents}" th:value="${tempAgent.id}" th:text="${tempAgent.name}" th:selected="${tempAgent} == *{agent}">
+                <option th:each="tempAgent : ${agents}" th:value="${tempAgent.id}" th:text="${tempAgent.name}"
+                        th:selected="${tempAgent} == *{agent}">
             </select>
         </div>
 
@@ -43,7 +44,7 @@
             <div class="col-3">
                 <span class="input-group-text">Тип клиента</span>
             </div>
-            <select  th:field="*{kindClient}" class="form-control col-5">
+            <select th:field="*{kindClient}" class="form-control col-5">
                 <option value="50/50">50/50</option>
                 <option value="20/80 Эдгардт">20/80 Эдгардт</option>
                 <option value="80/20 Эдгардт">80/20 Эдгардт</option>
@@ -56,9 +57,9 @@
             <div class="col-3">
                 <span class="input-group-text">Офисы</span>
             </div>
-            <select  th:field="*{office}" class="form-control col-5">
-                <option value="Школа">Школа</option>
-                <option value="Сервис">Сервис</option>
+            <select required th:field="*{office}" class="form-control col-5">
+                <option th:each="tempOffice : ${offices}" th:value="${tempOffice.id}" th:text="${tempOffice.name}"
+                        th:selected="${tempOffice} == *{location}">
             </select>
         </div>
 
@@ -73,10 +74,9 @@
             <div class="col-3">
                 <span class="input-group-text">Территория</span>
             </div>
-            <select  th:field="*{area}" class="form-control col-5">
-                <option value="Москва">Москва</option>
-                <option value="МО">МО</option>
-                <option value="Регион">Регион</option>
+            <select required th:field="*{location}" class="form-control col-5">
+                <option th:each="tempLocation : ${locations}" th:value="${tempLocation.id}" th:text="${tempLocation.name}"
+                        th:selected="${tempLocation} == *{location}">
             </select>
         </div>
 
@@ -92,6 +92,25 @@
                 <span class="input-group-text">Дата начала полиса</span>
             </div>
             <input type="date" th:field="*{startDate}" class="form-control col-5">
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Дата окончания полиса</span>
+            </div>
+            <input type="date" th:field="*{policeEndAt}"  class="form-control col-5">
+        </div>
+
+        <div class="input-group mb-3 row">
+            <div class="col-3">
+                <span class="input-group-text">Срок полиса</span>
+            </div>
+            <select th:field="*{periodicInMonth}" class="form-control col-5">
+                <option value="3">3 месяца</option>
+                <option value="6">6 месяцев</option>
+                <option value="9">9 месяцев</option>
+                <option value="12">12 месяцев</option>
+            </select>
         </div>
 
         <div class="input-group mb-3 row">
@@ -113,7 +132,8 @@
                 <span class="input-group-text">Страховая компания</span>
             </div>
             <select required th:field="*{insurer}" class="form-control col-5">
-                <option th:each="tempInsurer : ${insurers}" th:value="${tempInsurer.id}" th:text="${tempInsurer.name}" th:selected="${tempInsurer} == *{insurer}">
+                <option th:each="tempInsurer : ${insurers}" th:value="${tempInsurer.id}" th:text="${tempInsurer.name}"
+                        th:selected="${tempInsurer} == *{insurer}">
             </select>
         </div>
 
@@ -128,7 +148,7 @@
             <div class="col-3">
                 <span class="input-group-text">Вид страхования</span>
             </div>
-            <select  th:field="*{kindInsurance}" class="form-control col-5">
+            <select th:field="*{kindInsurance}" class="form-control col-5">
                 <option value="Е-Осаго">Е-Осаго</option>
                 <option value="Осаго">Осаго</option>
                 <option value="Каско">Каско</option>
@@ -140,7 +160,7 @@
             <div class="col-3">
                 <span class="input-group-text">Базовый тариф</span>
             </div>
-            <select  th:field="*{baseRate}" class="form-control col-5">
+            <select th:field="*{baseRate}" class="form-control col-5">
                 <option value="3500">3500</option>
                 <option value="3540">3540</option>
                 <option value="3600">3600</option>
@@ -172,7 +192,8 @@
             <div class="col-3">
                 <span class="input-group-text">Цена со скидкой</span>
             </div>
-            <input \d{1,8}.?\d{0,2} th:field="*{priceWithSale}" class="form-control col-5" placeholder="Цена со скидкой">
+            <input \d{1,8}.?\d{0,2} th:field="*{priceWithSale}" class="form-control col-5"
+                   placeholder="Цена со скидкой">
         </div>
 
         <div class="input-group mb-3 row">
@@ -193,7 +214,8 @@
             <div class="col-3">
                 <span class="input-group-text">КВ</span>
             </div>
-            <input pattern="\d{2}" th:field="*{kv}" class="form-control col-5" placeholder="12" title="Максимум два знака">
+            <input pattern="\d{2}" th:field="*{kv}" class="form-control col-5" placeholder="12"
+                   title="Максимум два знака">
         </div>
 
         <div class="input-group mb-3 row">
@@ -214,7 +236,7 @@
             <div class="col-3">
                 <span class="input-group-text">ДК</span>
             </div>
-            <select  th:field="*{dk}" class="form-control col-5">
+            <select th:field="*{dk}" class="form-control col-5">
                 <option value="true">Да</option>
                 <option value="false">Нет</option>
             </select>
@@ -253,7 +275,7 @@
     </form>
 
 </div>
-<div lang="en" th:replace="fragments/footer :: footer"> </div>
+<div lang="en" th:replace="fragments/footer :: footer"></div>
 </body>
 
 </html>

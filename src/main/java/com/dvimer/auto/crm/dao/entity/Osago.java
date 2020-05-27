@@ -1,6 +1,9 @@
 package com.dvimer.auto.crm.dao.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.ResultCheckStyle;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,7 +15,9 @@ import java.util.UUID;
 @Data
 @Table(name = "osago"
 )
-public class Osago implements java.io.Serializable {
+@SQLDelete(sql = "UPDATE osago SET status = 'DELETED' WHERE id = ?", check = ResultCheckStyle.COUNT)
+@Where(clause = "status <> 'DELETED'")
+public class Osago {
     @Id
     @GeneratedValue
     private UUID id;
@@ -20,15 +25,21 @@ public class Osago implements java.io.Serializable {
     @JoinColumn(name = "agent")
     private AgentEnity agent;
     private String kindClient;
-    private String office;
+    @OneToOne
+    private OfficeEntity office;
     private Integer numberOffice;
-    private String area;
+    private String status;
+    @OneToOne
+    private LocationEntity location;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date creationDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date policeEndAt;
     private String firstName;
     private String lastName;
     private String patronomic;
@@ -51,4 +62,5 @@ public class Osago implements java.io.Serializable {
     private Integer ourSalasy;
     private Integer cashbox;
     private Integer broughtAll;
+    private Integer periodicInMonth;
 }

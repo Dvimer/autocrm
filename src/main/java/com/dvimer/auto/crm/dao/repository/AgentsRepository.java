@@ -10,11 +10,4 @@ import java.util.List;
 
 public interface AgentsRepository extends JpaRepository<AgentEnity, Integer> {
     List<AgentEnity> findByName(String name);
-
-    List<AgentEnity> findByDeleted(boolean isDelete);
-
-    @Modifying
-    @Query("update AgentEnity a set a.deleted = :deleted where a.id = :id")
-    void updateWhereId(@Param("deleted") boolean delete, @Param("id") Integer id);
-
 }

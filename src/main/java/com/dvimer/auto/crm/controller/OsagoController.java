@@ -1,11 +1,7 @@
 package com.dvimer.auto.crm.controller;
 
-import com.dvimer.auto.crm.dao.entity.AgentEnity;
-import com.dvimer.auto.crm.dao.entity.InsurerEntity;
-import com.dvimer.auto.crm.dao.entity.Osago;
-import com.dvimer.auto.crm.service.AgentService;
-import com.dvimer.auto.crm.service.InsurerService;
-import com.dvimer.auto.crm.service.OsagoService;
+import com.dvimer.auto.crm.dao.entity.*;
+import com.dvimer.auto.crm.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +18,22 @@ public class OsagoController {
     private final OsagoService osagoService;
     private final AgentService agentService;
     private final InsurerService insurerService;
+    private final OfficeService officeService;
+    private final LocationService locationService;
 
     @ModelAttribute("agents")
     public List<AgentEnity> findAllAgent() {
-        return agentService.findAllNotDelete();
+        return agentService.findAll();
+    }
+
+    @ModelAttribute("locations")
+    public List<LocationEntity> findAllLocations() {
+        return locationService.findAll();
+    }
+
+    @ModelAttribute("offices")
+    public List<OfficeEntity> findAllOffices() {
+        return officeService.findAll();
     }
 
     @ModelAttribute("insurers")
@@ -60,25 +68,6 @@ public class OsagoController {
         theModel.addAttribute("osago", osago);
         return "osagos/osago-info";
     }
-
-
-    @PostMapping("/duplicate")
-    public String duplicate(@RequestParam("osagoId") UUID id, Model theModel) {
-        Osago osago = osagoService.findById(id);
-        Osago newOsago = new Osago();
-        mapOsago(osago, newOsago);
-
-        osagoService.save(newOsago);
-        return "redirect:/osagos/list";
-    }
-
-    private void mapOsago(Osago osago, Osago newOsago) {
-        newOsago.setAgent(osago.getAgent());
-        newOsago.setCreationDate(osago.getCreationDate());
-        newOsago.setOffice(osago.getOffice());
-        newOsago.setBaseRate(osago.getBaseRate());
-    }
-
 
     @PostMapping("/save")
     public String saveOsago(@ModelAttribute("osago") Osago osago) {

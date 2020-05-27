@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet"
-          th:href="@{/css/demo.css}" />
+          th:href="@{/css/demo.css}"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -30,25 +30,15 @@
             </div>
             <input type="text" th:field="*{name}" class="form-control col-5" placeholder="Имя">
         </div>
-    <div class="input-group mb-3 row">
-            <div class="col-3">
-                <span class="input-group-text">Удален</span>
-            </div>
-        <select  th:field="*{deleted}" class="form-control col-5">
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-        </select>
-        </div>
         <button type="submit" class="btn btn-info col-2">Сохранить</button>
     </form>
-
     <hr>
     <form action="#" th:action="@{/osagos/list}" method="GET">
         <button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Список осаго</button>
     </form>
 
 </div>
-<div lang="en" th:replace="fragments/footer :: footer"> </div>
+<div lang="en" th:replace="fragments/footer :: footer"></div>
 </body>
 
 </html>
