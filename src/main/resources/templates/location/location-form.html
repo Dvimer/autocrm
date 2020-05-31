@@ -11,16 +11,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>Сохранение Страховки</title>
+    <title>Расположение</title>
 </head>
 
 <body>
 <div lang="en" th:replace="fragments/header :: header"></div>
 <div class="container">
 
-    <h3>Страховая компания</h3>
-    <hr>
-    <p class="h4 mb-4">Информация</p>
+    <p class="h4 mb-4">Расположение</p>
     <form action="#" th:action="@{/location/save}"
           th:object="${location}" method="POST">
         <input type="hidden" th:field="*{id}"/>
@@ -29,15 +27,6 @@
                 <span class="input-group-text">Имя</span>
             </div>
             <input type="text" th:field="*{name}" class="form-control col-5" placeholder="Имя">
-        </div>
-        <div class="input-group mb-3 row">
-            <div class="col-3">
-                <span class="input-group-text">Удален</span>
-            </div>
-            <select th:field="*{status}" class="form-control col-5">
-                <option value="deleted">Удалить</option>
-                <option value="active">Активировать</option>
-            </select>
         </div>
         <button type="submit" class="btn btn-info col-2">Сохранить</button>
     </form>

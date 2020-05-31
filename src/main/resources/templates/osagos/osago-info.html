@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td>Офисы</td>
-            <td><span th:text="${osago.office}"> Офисы </span></td>
+            <td><span th:text="${osago.office.name}"> Офисы </span></td>
         </tr>
         <tr>
             <td>Номер офиса</td>
@@ -45,15 +45,19 @@
         </tr>
         <tr>
             <td>Территория</td>
-            <td><span th:text="${osago.location}"> Территория </span></td>
+            <td><span th:text="${osago.location.name}"> Территория </span></td>
         </tr>
         <tr>
             <td>Дата</td>
-            <td><span th:text="${#dates.format(osago.creationDate, 'dd-MMM-yyyy')}"> Дата </span></td>
+            <td><span th:text="${#dates.format(osago.creationDate)}"> Дата </span></td>
         </tr>
         <tr>
             <td>Дата начала полиса</td>
-            <td><span th:text="${#dates.format(osago.startDate, 'dd-MMM-yyyy')}"> Дата </span></td>
+            <td><span th:text="${#dates.format(osago.startDate)}"> Дата </span></td>
+        </tr>
+        <tr>
+            <td>Дата Окончания полиса</td>
+            <td><span th:text="${#dates.format(osago.policeEndAt)}"> Дата </span></td>
         </tr>
         <tr>
             <td>ФИО</td>
@@ -69,7 +73,7 @@
         </tr>
         <tr>
             <td>Базовый тариф</td>
-            <td><span th:text="${osago.baseRate}"></span></td>
+            <td><span th:text="${osago.insurer.baseRate}"></span></td>
         </tr>
         <tr>
             <td>Цена</td>

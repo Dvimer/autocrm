@@ -3,6 +3,7 @@ package com.dvimer.auto.crm.service;
 import com.dvimer.auto.crm.dao.entity.LocationEntity;
 import com.dvimer.auto.crm.dao.repository.LocationRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,7 +17,7 @@ public class LocationService {
     private final LocationRepository locationRepository;
 
     public List<LocationEntity> findAll() {
-        return locationRepository.findAll();
+        return locationRepository.findAll(Sort.by(Sort.Direction.ASC,"name"));
     }
 
     public void deleteById(UUID id) {
@@ -24,8 +25,7 @@ public class LocationService {
     }
 
     public void save(LocationEntity locationEntity) {
-        locationEntity.setCreatedAt(LocalDateTime.now());
-        locationEntity.setUpdatedAt(LocalDateTime.now());
+        locationEntity.setStatus("ACTIVE");
         locationRepository.save(locationEntity);
     }
 

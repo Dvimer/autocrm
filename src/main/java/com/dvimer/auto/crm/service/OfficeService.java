@@ -3,6 +3,7 @@ package com.dvimer.auto.crm.service;
 import com.dvimer.auto.crm.dao.entity.OfficeEntity;
 import com.dvimer.auto.crm.dao.repository.OfficeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,7 +17,7 @@ public class OfficeService {
     private final OfficeRepository officeRepository;
 
     public List<OfficeEntity> findAll() {
-        return officeRepository.findAll();
+        return officeRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 
     public void deleteById(UUID id) {
@@ -24,8 +25,7 @@ public class OfficeService {
     }
 
     public void save(OfficeEntity officeEntity) {
-        officeEntity.setCreatedAt(LocalDateTime.now());
-        officeEntity.setUpdatedAt(LocalDateTime.now());
+        officeEntity.setStatus("ACTIVE");
         officeRepository.save(officeEntity);
     }
 

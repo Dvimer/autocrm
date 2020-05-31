@@ -28,7 +28,7 @@
         <tr>
             <!--            <th>ID</th>-->
             <th>Имя</th>
-            <th>Ссылка</th>
+            <th>Базовый тариф</th>
             <th>Статус</th>
             <th>Дата создания</th>
             <th>Действие</th>
@@ -38,11 +38,8 @@
         <tbody>
         <tr th:each="tempInsurer : ${insurers}">
 
-            <!--            <td th:text="${tempAgent.id}"/>-->
             <td th:text="${tempInsurer.name}"/>
-            <td>
-                <a th:href="${tempInsurer.url}" th:text="${tempInsurer.url}" target="_blank" />
-            </td>
+            <td th:text="${tempInsurer.baseRate}"/>
             <td th:text="${tempInsurer.status}"/>
             <td th:text="${tempInsurer.createdAt}"/>
 

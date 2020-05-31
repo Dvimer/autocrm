@@ -75,7 +75,8 @@
                 <span class="input-group-text">Территория</span>
             </div>
             <select required th:field="*{location}" class="form-control col-5">
-                <option th:each="tempLocation : ${locations}" th:value="${tempLocation.id}" th:text="${tempLocation.name}"
+                <option th:each="tempLocation : ${locations}" th:value="${tempLocation.id}"
+                        th:text="${tempLocation.name}"
                         th:selected="${tempLocation} == *{location}">
             </select>
         </div>
@@ -94,18 +95,18 @@
             <input type="date" th:field="*{startDate}" class="form-control col-5">
         </div>
 
-        <div class="input-group mb-3 row">
-            <div class="col-3">
-                <span class="input-group-text">Дата окончания полиса</span>
-            </div>
-            <input type="date" th:field="*{policeEndAt}"  class="form-control col-5">
-        </div>
+        <!--        <div class="input-group mb-3 row">-->
+        <!--            <div class="col-3">-->
+        <!--                <span class="input-group-text">Дата окончания полиса</span>-->
+        <!--            </div>-->
+        <!--            <input type="date" th:field="*{policeEndAt}" class="form-control col-5">-->
+        <!--        </div>-->
 
         <div class="input-group mb-3 row">
             <div class="col-3">
                 <span class="input-group-text">Срок полиса</span>
             </div>
-            <select th:field="*{periodicInMonth}" class="form-control col-5">
+            <select required th:field="*{periodicInMonth}" class="form-control col-5">
                 <option value="3">3 месяца</option>
                 <option value="6">6 месяцев</option>
                 <option value="9">9 месяцев</option>
@@ -160,18 +161,9 @@
             <div class="col-3">
                 <span class="input-group-text">Базовый тариф</span>
             </div>
-            <select th:field="*{baseRate}" class="form-control col-5">
-                <option value="3500">3500</option>
-                <option value="3540">3540</option>
-                <option value="3600">3600</option>
-                <option value="3700">3700</option>
-                <option value="3900">3900</option>
-                <option value="3912">3912</option>
-                <option value="4000">4000</option>
-                <option value="4108">4108</option>
-                <option value="4118">4118</option>
-                <option value="4130">4130</option>
-            </select>
+            <div class="col-3" th:object="${osago.insurer}">
+                <!--                <span th:text="*{baseRate}"/>-->
+            </div>
         </div>
 
         <div class="input-group mb-3 row">

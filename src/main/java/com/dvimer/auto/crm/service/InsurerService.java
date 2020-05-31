@@ -3,6 +3,7 @@ package com.dvimer.auto.crm.service;
 import com.dvimer.auto.crm.dao.entity.InsurerEntity;
 import com.dvimer.auto.crm.dao.repository.InsurerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,7 +17,7 @@ public class InsurerService {
     private final InsurerRepository insurerRepository;
 
     public List<InsurerEntity> findAll() {
-        return insurerRepository.findAll();
+        return insurerRepository.findAll(Sort.by(Sort.Direction.ASC,"name"));
     }
 
     public void deleteById(UUID id) {
@@ -24,8 +25,7 @@ public class InsurerService {
     }
 
     public void save(InsurerEntity insurerEntity) {
-        insurerEntity.setCreatedAt(LocalDateTime.now());
-        insurerEntity.setUpdatedAt(LocalDateTime.now());
+        insurerEntity.setStatus("ACTIVE");
         insurerRepository.save(insurerEntity);
     }
 

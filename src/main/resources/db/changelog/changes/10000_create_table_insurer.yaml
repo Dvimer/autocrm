@@ -25,13 +25,13 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: url
-                  type: varchar(200)
+                  name: base_rate
+                  type: integer
               - column:
                   name: created_at
-                  type: timestamp
+                  type: date
                   constraints:
                     nullable: false
               - column:
                   name: updated_at
-                  type: timestamp
+                  type: date

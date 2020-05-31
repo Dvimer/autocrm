@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <title>Osago Directory</title>
+    <title>Управление офисами</title>
 </head>
 
 <body>
 <div lang="en" th:replace="fragments/header :: header"></div>
 <div class="container">
-    <h3>Страховые компании</h3>
+    <h3>Офиссы</h3>
     <hr>
     <div class="btn-group mb-2" role="group" aria-label="Button group with nested dropdown">
         <a th:href="@{/osagos/list}" type="button" class="btn btn-secondary">Осаго</a>
-        <a th:href="@{/office/showFormForAdd}" type="button" class="btn btn-secondary">Добавить Страховую</a>
+        <a th:href="@{/office/showFormForAdd}" type="button" class="btn btn-secondary">Добавить оффис</a>
     </div>
 
     <table class="table table-bordered table-striped">
