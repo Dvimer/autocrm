@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <hibernate-tools.version>6.0.1-SNAPSHOT</hibernate-tools.version>
-        <apach.poi.version>4.1.0</apach.poi.version>
+        <apach.poi.version>4.1.1</apach.poi.version>
     </properties>
 
     <dependencies>
